@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ListView
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.example.task.R
 import com.example.task.data.viewmodel.TaskViewModel
 import com.example.task.ui.screens.task.rv.TaskAdapter
@@ -39,7 +40,10 @@ class CompletedTasksFragment : Fragment() {
 
         taskViewModel.completedTasks.observe(viewLifecycleOwner, { tasks ->
             val adapter = TaskAdapter(tasks,
-                onTaskClick = { },
+                onTaskClick = { task ->
+                    taskViewModel.selectTask(task)
+                    findNavController().navigate(R.id.taskDetailFragment)
+                },
                 onTaskCheckChanged = { _, _ -> }
             )
             taskListView.adapter = adapter
