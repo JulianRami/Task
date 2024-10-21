@@ -3,6 +3,7 @@ package com.example.task
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.NavHostFragment
 import com.example.task.ui.screens.task.AddTaskFragment
 
 class MainActivity : AppCompatActivity() {
@@ -11,14 +12,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Cargar el fragmento inicial
-        if (savedInstanceState == null) {
-            loadFragment(AddTaskFragment()) // Aquí llamas a tu primer fragmento
-        }
+        val navHostFragment = supportFragmentManager
+            .findFragmentById(R.id.fragment_container) as NavHostFragment
+        val navController = navHostFragment.navController
     }
 
     private fun loadFragment(fragment: Fragment) {
-        // Cambia el fragmento dentro del FragmentContainerView
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.fragment_container, fragment)
         transaction.commit()

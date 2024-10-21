@@ -29,12 +29,10 @@ class TaskAdapter(
         taskText.text = task.name
         taskCheckBox.isChecked = task.isCompleted
 
-        // Detect when clicking on the task name
         taskText.setOnClickListener {
             onTaskClick(task)
         }
 
-        // Detect when the checkbox changes
         taskCheckBox.setOnCheckedChangeListener { _, isChecked ->
             onTaskCheckChanged(task, isChecked)
         }
