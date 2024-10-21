@@ -20,4 +20,10 @@
         android:name="com.example.task.ui.screens.task.uistate.TaskDetailFragment"
         android:label="Task Detail"
         tools:layout="@layout/fragment_task_detail" />
+
+    <fragment
+        android:id="@+id/completedTasksFragment"
+        android:name="com.example.task.ui.screens.task.uistate.CompletedTasksFragment"
+        android:label="Completed Tasks"
+        tools:layout="@layout/fragment_completed_tasks" />
 </navigation>

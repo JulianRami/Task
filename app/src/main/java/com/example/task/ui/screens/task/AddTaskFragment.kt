@@ -15,16 +15,6 @@ import com.example.task.R
 import com.example.task.data.viewmodel.TaskViewModel
 import com.example.task.ui.screens.task.rv.TaskAdapter
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [AddTaskFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class AddTaskFragment : Fragment() {
 
     private lateinit var taskViewModel: TaskViewModel
@@ -53,12 +43,17 @@ class AddTaskFragment : Fragment() {
             taskListView.adapter = adapter
         })
 
+        val taskInput = view.findViewById<EditText>(R.id.taskInput)
         view.findViewById<Button>(R.id.addTaskButton).setOnClickListener {
-            val taskName = view.findViewById<EditText>(R.id.taskInput).text.toString()
+            val taskName = taskInput.text.toString()
             if (taskName.isNotEmpty()) {
                 taskViewModel.addTask(taskName)
-                view.findViewById<EditText>(R.id.taskInput).text.clear()
+                taskInput.text.clear()
             }
+        }
+
+        view.findViewById<Button>(R.id.completedTasksButton).setOnClickListener {
+            findNavController().navigate(R.id.completedTasksFragment) // Cambiar aquí
         }
 
         return view

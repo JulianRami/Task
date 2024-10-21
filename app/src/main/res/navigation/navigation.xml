@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_addTaskFragment_to_taskDetailFragment"
             app:destination="@id/taskDetailFragment" />
+        <action
+            android:id="@+id/action_addTaskFragment_to_completedTasksFragment"
+            app:destination="@id/completedTasksFragment" />
     </fragment>
 
     <fragment
@@ -20,4 +23,7 @@
         android:name="com.example.task.ui.screens.task.uistate.TaskDetailFragment"
         android:label="Task Detail"
         tools:layout="@layout/fragment_task_detail" />
+    <fragment
+        android:id="@+id/completedTasksFragment"
+        android:name="com.example.task.ui.screens.task.uistate.CompletedTasksFragment" />
 </navigation>

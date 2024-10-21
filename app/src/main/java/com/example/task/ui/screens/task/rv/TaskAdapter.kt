@@ -1,5 +1,6 @@
 package com.example.task.ui.screens.task.rv
 
+import android.graphics.Paint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -29,6 +30,12 @@ class TaskAdapter(
         taskText.text = task.name
         taskCheckBox.isChecked = task.isCompleted
 
+        if (task.isCompleted) {
+            taskText.paintFlags = taskText.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+        } else {
+            taskText.paintFlags = taskText.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
+        }
+
         taskText.setOnClickListener {
             onTaskClick(task)
         }
@@ -39,4 +46,5 @@ class TaskAdapter(
 
         return view
     }
+
 }
