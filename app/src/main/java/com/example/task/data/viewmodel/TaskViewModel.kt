@@ -22,6 +22,8 @@ class TaskViewModel : ViewModel() {
     }
 
     fun updateTaskCompletion(task: Task, isCompleted: Boolean) {
+        task.isCompleted = isCompleted
+
         if (isCompleted) {
             _tasks.value?.remove(task)
             _completedTasks.value?.add(task)
@@ -29,6 +31,7 @@ class TaskViewModel : ViewModel() {
             _completedTasks.value?.remove(task)
             _tasks.value?.add(task)
         }
+
         _tasks.value = _tasks.value
         _completedTasks.value = _completedTasks.value
     }

@@ -39,7 +39,7 @@ class CompletedTasksFragment : Fragment() {
 
         taskViewModel.completedTasks.observe(viewLifecycleOwner, { tasks ->
             val adapter = TaskAdapter(tasks,
-                onTaskClick = { /* Manejar la acción de tarea si es necesario */ },
+                onTaskClick = { },
                 onTaskCheckChanged = { _, _ -> }
             )
             taskListView.adapter = adapter

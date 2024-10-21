@@ -53,7 +53,7 @@ class AddTaskFragment : Fragment() {
         }
 
         view.findViewById<Button>(R.id.completedTasksButton).setOnClickListener {
-            findNavController().navigate(R.id.completedTasksFragment) // Cambiar aquí
+            findNavController().navigate(R.id.completedTasksFragment)
         }
 
         return view

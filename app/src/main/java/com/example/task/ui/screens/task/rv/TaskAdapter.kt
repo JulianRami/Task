@@ -32,8 +32,10 @@ class TaskAdapter(
 
         if (task.isCompleted) {
             taskText.paintFlags = taskText.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+            taskCheckBox.isChecked = true
         } else {
             taskText.paintFlags = taskText.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
+            taskCheckBox.isChecked = false
         }
 
         taskText.setOnClickListener {
